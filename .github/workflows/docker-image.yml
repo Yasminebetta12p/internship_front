@@ -23,14 +23,14 @@ jobs:
 
       # Step 3: Build the Docker image using the correct path to the Dockerfile
       - name: Build Docker Image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/my-app:${{ github.sha }} -f Dockerfile .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/internship_front:${{ github.sha }} -f Dockerfile .
 
       # Step 4: Push the Docker image to Docker Hub
       - name: Push Docker Image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/my-app:${{ github.sha }}
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/internship_front:${{ github.sha }}
 
       # Step 5: Optionally, tag the image as 'latest' and push
       - name: Tag and Push Latest Image
         run: |
-          docker tag ${{ secrets.DOCKER_USERNAME }}/my-app:${{ github.sha }} ${{ secrets.DOCKER_USERNAME }}/my-app:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/my-app:latest
+          docker tag ${{ secrets.DOCKER_USERNAME }}/internship_front:${{ github.sha }} ${{ secrets.DOCKER_USERNAME }}/internship_front:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/internship_front:latest
